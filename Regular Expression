@@ -11,20 +11,27 @@
 대체: |는 주어진 패턴 중 하나를 선택하는 것을 의미합니다.
 정규 표현식은 각 프로그래밍 언어나 텍스트 편집기마다 약간의 차이가 있을 수 있으며, 각각의 문법과 규칙을 따라야 합니다. 정규 표현식을 사용하면 텍스트 처리 작업을 더욱 효율적으로 수행할 수 있으며, 문자열의 복잡한 패턴을 일치시키는 데 유용합니다.
 '''
+
 import re
 
-pattern = re.compile(r'정규표현식 패턴')
-match = pattern.match(문자열)
-search = pattern.search(문자열)
-findall = pattern.findall(문자열
+# match = pattern.match(문자열) : 문자열의 시작부터 패턴을 찾습니다.
+# search = pattern.search(문자열) : 문자열 전체에서 패턴을 찾습니다.
+# findall = pattern.findall(문자열) : 문자열에서 패턴과 일치하는 모든 부분을 찾아 리스트로 반환합니다.
 
-# match: 문자열의 시작부터 패턴을 찾습니다.
-# search: 문자열 전체에서 패턴을 찾습니다.
-# findall: 문자열에서 패턴과 일치하는 모든 부분을 찾아 리스트로 반환합니다.
+pattern = re.compile(r'^Hello')
+result1 = pattern.match('Hello, World!')
+if (result1):
+  print(result1)
+else:
+  print("못찾음")
 
-if match:
-    print("매치되었습니다.")
-if search:
-    print("검색되었습니다.")
-if findall:
-    print("모든 일치 항목:", findall)
+pattern = re.compile(r'World')
+result1 = pattern.search('Hello, World!')
+if (result1):
+  print(result1)
+else:
+  print("못찾음")
+
+text = "문자열에서 전화번호 010-1234-5678을 추출"
+phone_numbers = re.findall(r'\d{3}-\d{4}-\d{4}', text)
+print(phone_numbers)
